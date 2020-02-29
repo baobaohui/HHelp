@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HHelp personalCenter</title>
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main_part{
+            background-image: url("../static/images/personal_center/personal_center_background.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+
+        }
+        .personal{
+            position: absolute;
+            top:20%;
+            left:30%;
+
+            height: 70%;
+            width: 40%;
+
+            /*border: 2px solid blue;*/
+            z-index: 10;
+        }
+        .avatarPart{
+            height: 20%;
+            width: 20%;
+
+            align-items: center;
+            margin-left: 40%;
+
+
+            /*background-image: url("../images/personal_center/avatar.png");*/
+            /*background-repeat: no-repeat;*/
+            /*background-size: 100% 100%;*/
+            /*background-attachment: fixed;*/
+        }
+        .avatar{
+            height: 80%;
+            width: 80%;
+
+            margin-left: 10%;
+            border-radius: 100%;
+        }
+        #uploadfile1{
+            height: 16%;
+            width: 60%;
+
+            margin-top: 4%;
+            margin-left: 20%;
+
+            display: none;
+        }
+        .uploadfile2{
+            height: 16%;
+            width: 60%;
+
+            margin-top: 4%;
+            margin-left: 20%;
+
+            text-align: center;
+            color: #5979AA;
+        }
+        .uploadfile2:hover{
+            cursor: pointer;
+            color: #0031ff;
+        }
+        .username{
+            /*display: flex;*/
+            /*flex-direction: row;*/
+
+            margin-left: 35%;
+            color: #5979AA;
+        }
+        .name{
+            font-size: 1.5em;
+            float: left;
+        }
+        .changeName{
+            display:block;
+            font-size: 1em;
+            margin-left: 18px;
+            margin-top:6px;
+
+            float: left;
+        }
+        .changeName:hover{
+            color: #0031ff;
+            cursor: pointer;
+        }
+        .otherFunctions{
+
+            margin: 10% 0 0 44%;
+            font-size: 1.5em;
+            color: #5979AA;
+        }
+
+        .hide{
+            display: none;
+        }
+        .changePasswordModel{
+            position: fixed;
+            top:30%;
+            left:60%;
+            right: 0;
+            bottom: 0;
+            background-color: silver;
+            opacity: 0.6;
+            z-index: 9;
+
+            height: 40%;
+            width: 30%;
+        }
+        .oldPassword{
+            height: 10%;
+            width: 60%;
+
+            display: flex;
+            flex-direction: row;
+
+            margin-top: 5%;
+            margin-left: 20%;
+            /*line-height: 100%;*/
+            /*border: 1px solid blue;*/
+        }
+        .PasswordText{
+            display: inline-block;
+            text-align: right;
+
+            color: #5979AA;
+            font-size: 1em;
+            margin-top: 2.5%;
+            letter-spacing: 0.1em;
+
+            vertical-align:middle;
+            width: 30%;
+        }
+        .PasswordText:hover{
+            cursor: pointer;
+        }
+        .PasswordInput{
+            display: inline-block;
+
+            font-size: 1em;
+            margin-left: 5%;
+            padding-left: 1%;
+            color: #5979AA;
+
+        }
+        .passwordButton{
+            display: flex;
+            flex-direction: row;
+            height: 10%;
+            width: 60%;
+
+            margin-top: 10%;
+            margin-left: 20%;
+
+            color: white;
+            /*border: 1px solid blue;*/
+        }
+        .passwordSubmit{
+            height: 100%;
+            width: 100%;
+
+            background-color: #5979AA;
+            text-align: center;
+            line-height: 240%;
+            font-size: 1em;
+            /*padding-top: 20%;*/
+        }
+        .passwordSubmit:hover{
+            cursor: pointer;
+            border: 1px solid blue;
+        }
+        .passwordCancel{
+            height: 100%;
+            width: 100%;
+
+            margin-left: 20%;
+            background-color: #5979AA;
+            text-align: center;
+            line-height: 240%;
+            font-size: 1em;
+        }
+        .passwordCancel:hover{
+            cursor: pointer;
+            border: 1px solid blue;
+
+        }
+        #changePassword:hover{
+            color: #0031ff;
+            cursor: pointer;
+        }
+        #signOut:hover{
+            color: #0031ff;
+            cursor: pointer;
+        }
+        #aboutUs:hover{
+            color: #0031ff;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body class="main_part">
+
+<!--页面主体内容-->
+<div class="personal">
+
+    <div class="avatarPart">
+        <img id='fileimg' src="../static/images/personal_center/avatar.png" class="avatar">
+        <input type="file" class="uploadFile1" id="uploadfile1" onchange="upCh(this)">
+        <p id='uploadfile2' class="uploadfile2">上传头像</p>
+    </div>
+    <div class="username">
+            <div class="name">baobaohui</div>
+            <div class="changeName">
+                修改昵称
+            </div>
+    </div>
+
+    <div class="otherFunctions">
+            <p id="changePassword">修改密码</p>
+            <p id="signOut">退出登录</p>
+            <p id="aboutUs" style="cursor: pointer;">关于我们</p>
+    </div>
+
+</div>
+
+<!-- 这里是一个form表单 -->
+<form action="/changePassword/" method="post" enctype="multipart/form-data">
+
+    <div class="changePasswordModel hide">
+        <div class="oldPassword">
+            <p class="PasswordText">原密码</p>
+            <input type="text" class="PasswordInput" placeholder="请输入原密码" name="oldPassword">
+        </div>
+
+        <div class="oldPassword">
+            <p class="PasswordText">新密码</p>
+            <input type="text" class="PasswordInput" placeholder="请输入新密码" name="newPassword">
+        </div>
+        <div class="oldPassword">
+            <p class="PasswordText">确认密码</p>
+            <input type="text" class="PasswordInput" placeholder="请输入确认密码" name="confirmPassword">
+        </div>
+
+        <div class="passwordButton">
+            <input type="submit" class="passwordSubmit" value="提交"></input>
+            <span class="passwordCancel">取消</span>
+        </div>
+    </div>
+
+</form>
+
+
+<script src="../static/jquery-3.4.1.js"></script>
+<script src="../static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script>
+
+    //上传文件
+    $('#uploadfile2').click(function () {
+        $('#uploadfile1').click();
+    });
+    //上传的图片预览
+    function upCh(file){
+        let img = $('#fileimg');
+        let formData = new FormData();
+        let imgUrl = file.files[0];
+        if(imgUrl){
+            formData.append('file',imgUrl);
+            imgUrl.src = window.Url.createObjectURL(imgUrl)//window.URL.createObjectURL预览图片
+        //    这里可以写上传到后端代码
+        }
+    }
+    //修改密码
+    $('#changePassword').click(function () {
+
+        console.log("修改密码");
+        $('.changePasswordModel').removeClass('hide');
+        // $('.changePasswordModel').css('background-color','#66afe9');
+        // $(this).siblings().css('background-color','white');
+    });
+
+    $('.passwordCancel').click(function () {
+       $('.changePasswordModel').addClass('hide')
+    });
+
+
+//    退出登录
+    $('#signOut').click(function () {
+        window.location.href='/login/'
+    });
+
+//    关于我们
+    $('#aboutUs').click(function () {
+        alert("HHelp智能健康医疗平台")
+    })
+
+
+</script>
+</body>
+</html>

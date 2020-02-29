@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HHelp become_expert</title>
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main_part{
+            background-image: url("../static/images/become_expert/become_expert_background.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+
+        }
+        .expertPart{
+            position: absolute;
+
+            top: 20%;
+            left: 20%;
+
+            height: 70%;
+            width: 60%;
+
+            align-items: center;
+            /*border: 1px solid blue;*/
+        }
+        .id_name{
+            display: flex;
+            flex-direction: column;
+
+            height: 20%;
+            width: 60%;
+            margin-left: 20%;
+
+            /*border: 1px solid blue;*/
+        }
+
+        .id{
+            height: 47.5%;
+            width: 60%;
+            margin-left: 20%;
+            padding-left: 2%;
+            border: none;
+            color: #000;
+            font-size: 1.5em;
+            background-color: #eeeeee;
+        }
+        .id:hover{
+            border: 1px solid blue;
+        }
+        .name{
+            height: 47.5%;
+            width: 60%;
+            margin-top: 2%;
+            padding-left: 2%;
+            margin-left: 20%;
+            border: none;
+            color: #000;
+            font-size: 1.5em;
+            background-color: #eeeeee;
+        }
+        .name:hover{
+            border: 1px solid blue;
+        }
+        .idCard{
+            height: 30%;
+            width: 60%;
+
+            display: flex;
+            flex-direction: row;
+            margin-left: 20%;
+            margin-top: 2%;
+            /*border: 1px solid blue;*/
+        }
+        .idCardPositive{
+            height: 100%;
+            width: 45%;
+            background-color: #eeeeee;
+
+            align-content: center;
+            text-align: center;
+
+        }
+        .idCardPositive:hover{
+            border: 1px solid blue;
+        }
+        #uploadIdCardPositive{
+
+            font-size: 1.5em;
+            color: #ADAEB2;
+            /*line-height: 200%;*/
+            margin-top: 30%;
+        }
+        .idCardNegative{
+            height: 100%;
+            width: 45%;
+            margin-left: 10%;
+            background-color: #eeeeee;
+            align-content: center;
+            text-align: center;
+        }
+        .idCardNegative:hover{
+            border: 1px solid blue;
+        }
+        #uploadIdCardNegative{
+            font-size: 1.5em;
+            color: #ADAEB2;
+            /*line-height: 200%;*/
+            margin-top: 30%;
+        }
+
+        .physicianCertificate{
+            height: 30%;
+            width: 60%;
+
+            display: flex;
+            flex-direction: row;
+            margin-left: 20%;
+            margin-top: 2%;
+        }
+        .PhysicianCertificatePositive{
+            height: 100%;
+            width: 45%;
+            background-color: #eeeeee;
+
+            align-content: center;
+            text-align: center;
+
+        }
+        .PhysicianCertificatePositive:hover{
+            border: 1px solid blue;
+        }
+        #uploadPhysicianCertificatePositive{
+
+            font-size: 1.5em;
+            color: #ADAEB2;
+            /*line-height: 200%;*/
+            margin-top: 30%;
+        }
+
+        .PhysicianCertificateNegative{
+            height: 100%;
+            width: 45%;
+            margin-left: 10%;
+            background-color: #eeeeee;
+            align-content: center;
+            text-align: center;
+        }
+        .PhysicianCertificateNegative:hover{
+            border: 1px solid blue;
+        }
+        #uploadPhysicianCertificateNegative{
+            font-size: 1.5em;
+            color: #ADAEB2;
+            /*line-height: 200%;*/
+            margin-top: 30%;
+        }
+
+        .registerButton{
+            height: 14%;
+            width: 40%;
+
+            margin-left: 30%;
+            /*border: 1px solid blue;*/
+        }
+        .button1{
+            height: 45%;
+            width: 90%;
+
+            background-color: #5296FD;
+            border-radius: 2%;
+            margin:5% 5%;
+            color: white;
+            letter-spacing: 0.1em;
+
+            font-size: 1em;
+            border: none;
+
+            text-align: center;
+
+            line-height: 260%;
+            display: block;
+        }
+        .button1:hover{
+            /*background-color: blue;*/
+            border: 1px solid blue;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body class="main_part">
+<!--页面主体-->
+<div class="expertPart">
+<!--身份证号和姓名-->
+    <div class="id_name">
+        <input type="text" placeholder="身份证号" class="id">
+        <input type="text" placeholder="密码" class="name">
+    </div>
+
+    <!--身份证正反面-->
+    <div class="idCard">
+
+        <div class="idCardPositive">
+<!--        <input type="file">-->
+            <p id="uploadIdCardPositive">身份证正面</p>
+        </div>
+
+        <div class="idCardNegative">
+<!--        <input type="file">-->
+            <p id="uploadIdCardNegative">身份证反面</p>
+        </div>
+
+    </div>
+
+    <!--医师资格证正反面-->
+    <div class="physicianCertificate">
+        <div class="PhysicianCertificatePositive">
+<!--        <input type="file">-->
+            <p id="uploadPhysicianCertificatePositive">医师资格证正面</p>
+        </div>
+
+        <div class="PhysicianCertificateNegative">
+<!--        <input type="file">-->
+            <p id="uploadPhysicianCertificateNegative">医师资格证反面</p>
+        </div>
+
+    </div>
+
+<!-- 注册按钮-->
+    <div class="registerButton">
+
+        <span type="button" value="登录" onclick="check()" class="button1" id="login">提交审核</span>
+
+    </div>
+
+</div>
+
+<script src="../static/jquery-3.4.1.js"></script>
+<script src="../static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script>
+
+    function check() {
+        console.log("提交审核");
+    }
+</script>
+</body>
+</html>

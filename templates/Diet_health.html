@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HHelp Diet_health</title>
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+
+        .PersonalCenter {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+
+            width: 6%;
+            height: 6%;
+            border:1px solid yellow;
+        }
+
+        .NavigationBar {
+            position: absolute;
+            top: 25%;
+            left: 5%;
+            width: 20%;
+            height: 60%;
+
+        }
+
+        .OneNavigationBar {
+            height: 8%;
+            width: 75%;
+            margin: 0 20% 5% 15%;
+            background-color: #5296fd;
+            border-radius: 60px;
+
+            /*border: 2px solid yellow;*/
+            text-align: center;
+        }
+
+        .selectedOneNavigationBar {
+            height: 8%;
+            width: 75%;
+
+            margin: 0 20% 5% 15%;
+            /*background-color: #0031ff;*/
+            background-color: #0031ff;
+            border-radius: 60px;
+            /*border: 2px solid yellow;*/
+            text-align: center;
+        }
+
+        .NavigationBarText {
+            width: 100%;
+            height: 100%;
+            color: white;
+            font-size: 1em;
+            line-height: 250%;
+        }
+
+        .OneNavigationBar:hover {
+            cursor: pointer;
+            border: 2px solid #0031ff;
+        }
+
+        .search{
+            position: absolute;
+            top: 15%;
+            left: 40%;
+
+            display: flex;
+            flex-direction: row;
+
+            height: 5%;
+            width: 30%;
+
+            border: 1px solid blue;
+        }
+        .search_input{
+            width:92%;
+            height: 100%;
+
+            padding-left: 2%;
+            font-size: 1em;
+        }
+        .search_input:hover{
+            border: 1px solid blue;
+        }
+        .search_img{
+            height: 100%;
+            width: 8%;
+            /*margin: 0 1%;*/
+
+            background-color: #81AFF6;
+        }
+        .search_img:hover{
+            cursor: pointer;
+        }
+        .main_part{
+            position: absolute;
+            top: 25%;
+            left: 30%;
+
+            height: 60%;
+            width: 50%;
+            border: 2px solid blue;
+
+        }
+
+    </style>
+
+</head>
+<body background="../static/images/index/index_background.png">
+
+<!--左上侧的个人中心-->
+<div class="PersonalCenter">
+
+    <div class="dropdown" style="width: 100%;height: 100%;">
+        <div class="  dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="true">
+            <img src="../static/images/index/user.png" style="display:block;width: 100%;height: 100%;margin: auto;">
+            <span class="caret"></span>
+        </div>
+
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width: 100%;height: 120%;">
+            <li><a href="/personalCenter/">个人中心</a></li>
+            <li><a href="/become_epert/">成为专家</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/login/">退出登录</a></li>
+        </ul>
+
+    </div>
+</div>
+<!--左侧菜单按钮位置-->
+<div class="NavigationBar" id="menu">
+
+    <!--每个菜单按钮-->
+    <div class="OneNavigationBar" onclick="window.location.href='/NearbyPharmacy/'">
+        <p class="NavigationBarText">附近药房</p>
+    </div>
+    <div class="selectedOneNavigationBar" onclick="window.location.href='/Diet_health/'">
+        <p class="NavigationBarText">食疗养生</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Pharmaceutical_formula/'">
+        <p class="NavigationBarText">医药配方</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Dialogue_expert/'">
+        <p class="NavigationBarText">对话专家</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Avoid_eating_list/'">
+        <p class="NavigationBarText">忌吃清单</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Sports_health/'">
+        <p class="NavigationBarText">运动保健</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Online_registration/'">
+        <p class="NavigationBarText">在线挂号</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Smart_notes/'">
+        <p class="NavigationBarText">智能备忘</p>
+    </div>
+
+</div>
+
+<!--右侧上方的搜索框-->
+<div class="search">
+    <input id='search' type="text" placeholder="请输入你要搜索的内容" class="search_input">
+    <img src="../static/images/index/search.png" class="search_img">
+</div>
+
+<!--右侧下方的主体部分-->
+<div class="main_part">
+
+
+</div>
+
+<script src="../static/jquery-3.4.1.js"></script>
+<script src="../static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script>
+    // $('.menu div').click(function(){
+    //     var f = this;
+    //     $('.menv div').each(function () {
+    //         this.className = this == f?'selectedOneNavigationBar':'OneNavigationBar'
+    //     })
+    // })
+
+    //
+    // function Navigate(){
+    //     console.log("点击")
+    //     // console.log(this.innerHtml())
+    //     window.location.href='NearbyPharmacy.html'
+    // }
+
+
+</script>
+
+</body>
+</html>

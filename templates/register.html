@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HHelp register</title>
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width:100%;
+            height: 100%;
+
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+        .content{
+            position: absolute;
+            top: 34%;
+            left: 58%;
+
+            height: 40%;
+            width: 24%;
+            /*border: 1px solid blue;*/
+            /*background-color: #F8F8F8;*/
+        }
+        .input{
+            display:flex;
+            flex-direction:row;
+
+            height:14%;
+            width:100%;
+
+            margin-bottom: 5%;
+        }
+
+        .PromptText{
+            dispaly:inline-block;
+            text-align:right;
+
+            heigth:100%;
+            width:20%;
+
+            margin-top:5%;
+            line-height:100%;
+            font-size:1em;
+
+        }
+        .username{
+            display: flex;
+            flex-direction: row;
+
+            height: 100%;
+            width:75%;
+            background-color: #F8F8F8;
+            border-radius:2%;
+
+            margin-left:5%;
+            /*margin-bottom: 5%;*/
+            border: 1px solid #F8F8F8;
+
+        }
+        .username:hover{
+            border: 2px solid blue;
+        }
+        .login_img{
+            height: 40%;
+            width: 6%;
+            margin: 5%;
+        }
+        .username>input{
+            border: 0;
+            outline: none;
+            margin:1% 0;
+            height: 94%;
+            width: 82%;
+            line-height: 100%;
+            font-size: 1em;
+            color: #B7B8BE;
+            background-color: #F8F8F8;
+        }
+        .login_register{
+            display: flex;
+            flex-direction: column;
+
+            width: 100%;
+            height: 50%;
+            margin-top: 5%;
+        }
+        .button1{
+            height: 30%;
+            width: 75%;
+
+            background-color: white;
+            margin:5% 0 5% 25%;
+            color: white;
+            letter-spacing: 0.1em;
+            background-image: url("../static/images/register/button_background.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            font-size: 1em;
+            border: none;
+        }
+        /*.button1:hover{*/
+        /*    background-color: blue;*/
+        /*}*/
+
+        .button2{
+            height: 30%;
+            width: 75%;
+            background-color: white;
+            margin:0 0 0 25%;
+            color: white;
+            letter-spacing: 0.1em;
+            background-image: url("../static/images/register/button_background.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            font-size: 1em;
+            border: none;
+        }
+        /*.button2:hover{*/
+        /*    background-color: #4587F8;*/
+        /*}*/
+    </style>
+
+</head>
+<body background="../static/images/register/register.png">
+
+<!--登录主体-->
+<div class="content">
+
+    <!--四个输入框-->
+    <div class="input">
+        <p class="PromptText">邮箱</p>
+        <div class="username">
+            <img src="../static/images/login/name.png" class="login_img">
+            <input type="email" placeholder="请输入账号" id="username" class="login_input">
+
+        </div>
+    </div>
+
+    <div class="input">
+        <p class="PromptText">验证码</p>
+        <div class="username">
+            <img src="../static/images/register/verificationCode.png" class="login_img">
+<!--            <span class="glyphicon glyphicon-envelope" aria-hidden="true" ></span>-->
+            <input type="password" placeholder="请输入验证码" id="VerificationCode" class="login_input">
+
+        </div>
+    </div>
+
+    <div class="input">
+        <p class="PromptText">密码</p>
+        <div class="username">
+
+            <img src="../static/images/register/password.png" class="login_img">
+<!--            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>-->
+            <input type="text" placeholder="请输入密码" id="password" class="login_input">
+        </div>
+    </div>
+
+    <div class="input">
+        <p class="PromptText">确认密码</p>
+        <div class="username">
+            <img src="../static/images/register/password.png" class="login_img">
+<!--            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>-->
+            <input type="password" placeholder="请确认密码" id="ConfirmPassword" class="login_input">
+
+        </div>
+    </div>
+
+
+    <!-- 登录注册的按钮-->
+    <div class="login_register">
+        <button value="确认注册" onclick="register()" class="button1" id="register">确认注册</button>
+        <button value="发验证码" onclick="SendVerificationCode()" class="button2" id="SendVerificationCode">发验证码</button>
+    </div>
+
+
+
+</div>
+
+
+<script src="../static/jquery-3.4.1.js"></script>
+<script src="../static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script>
+<!--   给登录按钮绑定事件-->
+function register(){
+    console.log("点击了注册按钮")
+}
+
+
+
+$("#register").click(function () {
+
+    console.log("username:",$('#username').val());
+    console.log("验证码",$('#VerificationCode').val());
+    console.log("密码:",$('#password').val());
+    console.log("确认密码:",$('#ConfirmPassword').val());
+
+    //进行密码与确认密码的比对
+    if ($('#password').val() == $('#ConfirmPassword').val())
+    {
+        //发送数据请求
+        $.ajax({
+            type:"post",
+            {#url:"http://180.76.184.216/api/register/",#}
+            url:"/registerEmail/",
+            data:{
+                email:$('#username').val(),
+                vercode:$('#VerificationCode').val(),
+                password:$('#password').val(),
+                ConfirmPassword:$('#ConfirmPassword').val(),
+            },
+            dataType:"json",//json类型的数据
+            timeout:3000,//3s 后提示错误
+
+            //发送之前会进入这个函数
+            beforeSend:function(){
+
+            },
+            success:function (data) {
+                console.log(data);
+                if(data == 1){
+                    alert("注册成功");
+                    window.location.href="/login/"
+                }
+
+            },
+            //失败的函数
+            error:function (data) {
+                console.log(data)
+                alert("注册失败")
+            },
+            complete:function () {
+
+            }
+        });
+    }
+    else{
+        alert("密码与确认密码不符，请重新输入")
+    }
+
+
+});
+
+
+//发送验证码
+function SendVerificationCode(){
+    console.log("点击了发验证码按钮");
+
+    console.log($('#username').val);
+
+    $.ajax({
+        type:"get",
+        {#url:"http://180.76.184.216/api/getvercode/",#}
+        url:"/vercode/",
+        data:{email:$('#username').val()},
+        dataType:"json",//json类型的数据
+        timeout:3000,//3s 后提示错误
+
+        //发送之前会进入这个函数
+        beforeSend:function(){
+
+        },
+        success:function (data) {
+            console.log(data)
+            if(data == '1'){
+                alert("成功发送")
+            }
+
+
+        },
+        //失败的函数
+        error:function (data) {
+            console.log(data)
+            alert("发送失败")
+        },
+        complete:function () {
+
+        }
+    })
+}
+
+</script>
+
+</body>
+</html>

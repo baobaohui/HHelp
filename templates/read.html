@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HHelp read</title>
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main_part{
+            background-image: url("../static/images/read/read_background.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+
+        }
+        .read_main_part{
+            position: absolute;
+            top: 20%;
+            left: 20%;
+
+            height: 70%;
+            width: 60%;
+            border: 2px solid blue;
+        }
+        .text_part{
+            float: left;
+            width: 100%;
+            height: 100%;
+            /*margin: 2%;*/
+
+            /*border: 1px solid blue;*/
+
+            /*font-size: 3em;*/
+            color: black;
+        }
+        .tittle{
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .article{
+            font-size: 1em;
+
+        }
+    </style>
+</head>
+<body class="main_part">
+<!--阅读的内容主体-->
+<div class="read_main_part">
+
+    <div class="text_part">
+        <span class="tittle">{{ title }}</span>
+        <br/><br/>
+        <p class="article">&nbsp;&nbsp;{{ content }}</p>
+
+        <!--
+        间隔2小时再进食，应避免饿肚子运动，以免运动完之后更饿，吃进更多热量；另运动后血液集中再锻炼部位，此时
+            肠胃代谢速率变慢，吸收变好，宜至少间隔1-2小时再进食，以免消化不良再进食。
+            <br/>
+            &nbsp;&nbsp;空腹和刚进食后就开始运动，对人体健康都是非常不利的。在运动前半小时食用少量食物，可以避免因为体力活动而导致的消化功能紊乱，同时还可以增强运动效果。如果是晨练，早餐一定要避免食用难以消化的食物，最好食用少量奶制品，谷类，水果，饮料。
+在运动过程中应及时补充水分。
+            <br/>
+            &nbsp;&nbsp;如果运动时间少于1小时，每15分钟应喝水150-300毫升：如果运动时间在1-3小时，应及时给身体补充糖水以免出现低血糖。
+            <br/>
+            &nbsp;&nbsp;此外运动时一定不要喝冰水，因为剧烈运动时喝冰水会引起消化系统方面的问题。
+            <br/>
+            &nbsp;&nbsp;
+运动后不宜吃鱼，肉等酸性食物。运动后，人体内的糖，脂肪，蛋白质被大量分解，产生乳酸，磷酸等酸性物质，这些酸性物质会刺激人体组织器官，使人感到肌肉，关节酸胀和精神疲乏。鱼，肉等食品属于酸性食物，运动后即食用这些酸性食物。会使体液更加酸性化，不利肌肉，关节酸胀感和身体疲劳感的解除。
+运动后应多吃一些水果，蔬菜，豆制品等碱性食物，以保持人体内酸碱平衡，从而达到消除运动疲劳，保持健康的目的。
+            <br/>
+            &nbsp;&nbsp;
+饭后运动是不可取的。在饭后运动，会造成消化道缺血，胃肠的蠕动减弱，引起消化不良。饭后休息一段时间，一般1～2小时以后再进行跑步或作其他体育锻炼才是适宜的。
+
+        -->
+    </div>
+
+</div>
+
+<script src="../static/jquery-3.4.1.js"></script>
+<script src="../static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script>
+
+
+
+</script>
+</body>
+</html>

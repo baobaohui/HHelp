@@ -1,0 +1,353 @@
+<!--
+<!DOCTYPE html>
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HHelp NearbyPharmacy</title>
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+
+        .PersonalCenter {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            width: 6%;
+            height: 6%;
+
+            border:1px solid yellow;
+        }
+        .NavigationBar {
+            position: absolute;
+            top: 25%;
+            left: 5%;
+            width: 20%;
+            height: 60%;
+
+
+        }
+
+        .OneNavigationBar {
+            height: 8%;
+            width: 75%;
+            margin: 0 20% 5% 15%;
+            background-color: #5296fd;
+            border-radius: 60px;
+
+            /*border: 2px solid yellow;*/
+            text-align: center;
+        }
+
+        .selectedOneNavigationBar {
+            height: 8%;
+            width: 75%;
+
+            margin: 0 20% 5% 15%;
+            /*background-color: #0031ff;*/
+            background-color: #0031ff;
+            border-radius: 60px;
+            /*border: 2px solid yellow;*/
+            text-align: center;
+        }
+
+        .NavigationBarText {
+            width: 100%;
+            height: 100%;
+            color: white;
+            font-size: 1em;
+            line-height: 250%;
+        }
+
+        .OneNavigationBar:hover {
+            cursor: pointer;
+            border: 2px solid #0031ff;
+        }
+
+        .search {
+            position: absolute;
+            top: 15%;
+            left: 40%;
+
+            display: flex;
+            flex-direction: row;
+
+            height: 5%;
+            width: 30%;
+
+            border: 1px solid blue;
+        }
+
+        .search_input {
+            width: 92%;
+            height: 100%;
+
+            padding-left: 2%;
+            font-size: 1em;
+        }
+
+        .search_input:hover {
+            border: 1px solid blue;
+        }
+
+        .search_img {
+            height: 100%;
+            width: 8%;
+            /*margin: 0 1%;*/
+
+            background-color: #81AFF6;
+        }
+
+        .search_img:hover {
+            cursor: pointer;
+        }
+
+        .main_part {
+            position: absolute;
+            top: 25%;
+            left: 30%;
+            display: flex;
+            flex-direction: row;
+
+            height: 60%;
+            width: 60%;
+            border: 2px solid blue;
+        }
+
+        .map_main_part {
+            height: 100%;
+            width: 70%;
+            /*background: transparent url("https://api.map.baidu.com/images/blank.gif");*/
+            /*overflow: hidden;*/
+            border-right: 4px solid blue;
+        }
+        #r-result{
+            width: 30%;
+            /*height: 1000px;*/
+            height: 100%;
+
+            /*border: none;*/
+            overflow: auto;
+
+            line-height: 100px;
+            text-align: center;
+            font-size: 14px;
+
+        }
+        .map_result>div{
+            /*height: 100%;*/
+            /*width: 100%;*/
+            line-height: 100px;
+            text-align: center;
+            display: block;
+        }
+        /*.map_result>li{*/
+        /*    display: block;*/
+        /*    height: 100px;*/
+        /*    width: 100%;*/
+        /*}*/
+    </style>
+
+</head>
+<body background="../static/images/index/index_background.png">
+
+<!--右上侧的个人中心-->
+<div class="PersonalCenter">
+
+    <div class="dropdown" style="width: 100%;height: 100%;">
+        <div class="  dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="true">
+            <img src="../static/images/index/user.png" style="display:block;width: 100%;height: 100%;margin: auto;">
+            <span class="caret"></span>
+        </div>
+
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width: 100%;height: 120%;">
+            <li><a href="/personalCenter/">个人中心</a></li>
+            <li><a href="/become_epert/">成为专家</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/login/">退出登录</a></li>
+        </ul>
+
+    </div>
+</div>
+
+<!--左侧菜单按钮位置-->
+<div class="NavigationBar" id="menu">
+
+    <!--每个菜单按钮-->
+    <div class="selectedOneNavigationBar" onclick="window.location.href='/NearbyPharmacy/'">
+        <p class="NavigationBarText">附近药房</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Diet_health/'">
+        <p class="NavigationBarText">食疗养生</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Pharmaceutical_formula/'">
+        <p class="NavigationBarText">医药配方</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Dialogue_expert/'">
+        <p class="NavigationBarText">对话专家</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Avoid_eating_list/'">
+        <p class="NavigationBarText">忌吃清单</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Sports_health/'">
+        <p class="NavigationBarText">运动保健</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Online_registration/'">
+        <p class="NavigationBarText">在线挂号</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Smart_notes/'">
+        <p class="NavigationBarText">智能备忘</p>
+    </div>
+
+</div>
+
+<!--右侧上方的搜索框,是一个form表单，不同页面对应不同的处理函数，点击搜索后进行处理-->
+<form action="">
+    <div class="search">
+        <input id='search' type="text" placeholder="请输入你要搜索的内容" class="search_input">
+        <img src="../static/images/index/search.png" class="search_img">
+<!-- 图片这里应该是一个type=submit的按钮-->
+    </div>
+</form>
+<!--右侧下方的主体部分-->
+<div class="main_part">
+
+    <div class="map_main_part" id="allmap">
+    </div>
+<!--    <div class="map_main_part" id="dituContent">-->
+<!--    </div>-->
+    <div id="r-result" class="map_result">
+
+    </div>
+</div>
+
+<script src="../static/jquery-3.4.1.js"></script>
+<script src="../static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script src="https://api.map.baidu.com/getscript?v=2.0&amp;ak=xFYZy9RF6k9rMxUkcPgWd7T0DxAyH84I&amp;services=&amp;t=20191209160507"></script>
+<script type="text/javascript">
+    // $('.menu div').click(function(){
+    //     var f = this;
+    //     $('.menv div').each(function () {
+    //         this.className = this == f?'selectedOneNavigationBar':'OneNavigationBar'
+    //     })
+    // })
+
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	map.centerAndZoom(new BMap.Point(108.95309828,34.2777999), 20);
+
+    map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+    map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+    map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+    map.enableKeyboard();//启用键盘上下左右键移动地图
+
+    // function search() {
+    //     var local = new BMap.LocalSearch(map, {
+    //         renderOptions:{map: map}
+    //         });
+    //
+    //     var text = $('#search').val;
+    //     console.log(text);
+    //     local.search(text);
+    // }
+
+    var local = new BMap.LocalSearch(map, {
+            renderOptions:{map: map,panel:"r-result"}
+            });
+    // var text = $('#search').val;
+    // console.log(text);
+    local.search("医院");
+
+
+    // // 百度地图API功能
+    // var map = new BMap.Map("allmap");
+    //
+    // //没有获取到地理位置信息之前，展示的地图的位置
+    // var point = new BMap.Point(108.95309828,34.2777999);
+    // //缩放比例
+    // map.centerAndZoom(point,26);
+    //
+    // //开始来获取当前位置
+    // var geolocation = new BMap.Geolocation();
+    // geolocation.getCurrentPosition(function(r){
+    // 	if(this.getStatus() == BMAP_STATUS_SUCCESS){
+    // 		var mk = new BMap.Marker(r.point);
+    // 		map.addOverlay(mk);
+    // 		map.panTo(r.point);
+    //
+    //         //lng和lat就是经度和纬度
+    //         //longitude: 经度
+    //         //latitude： 纬度
+    // 		alert('您的位置：'+r.point.lng+','+r.point.lat);
+    // 	}
+    //
+    // 	else {
+    // 		alert('failed'+this.getStatus());
+    // 	}
+    // },{enableHighAccuracy: true})
+
+    //关于状态码
+    //BMAP_STATUS_SUCCESS	检索成功。对应数值“0”。
+    //BMAP_STATUS_CITY_LIST	城市列表。对应数值“1”。
+    //BMAP_STATUS_UNKNOWN_LOCATION	位置结果未知。对应数值“2”。
+    //BMAP_STATUS_UNKNOWN_ROUTE	导航结果未知。对应数值“3”。
+    //BMAP_STATUS_INVALID_KEY	非法密钥。对应数值“4”。
+    //BMAP_STATUS_INVALID_REQUEST	非法请求。对应数值“5”。
+    //BMAP_STATUS_PERMISSION_DENIED	没有权限。对应数值“6”。(自 1.1 新增)
+    //BMAP_STATUS_SERVICE_UNAVAILABLE	服务不可用。对应数值“7”。(自 1.1 新增)
+    //BMAP_STATUS_TIMEOUT	超时。对应数值“8”。(自 1.1 新增)
+
+
+    // //创建和初始化地图函数：
+    // function initMap() {
+    //     createMap();//创建地图
+    //     setMapEvent();//设置地图事件
+    //     addMapControl();//向地图添加控件
+    // }
+    // //创建地图函数：
+    // function createMap() {
+    //     var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+    //     var point = new BMap.Point(108.95309828, 34.2777999);//定义一个中心点坐标
+    //     map.centerAndZoom(point, 36);//设定地图的中心点和坐标并将地图显示在地图容器中
+    //     window.map = map;//将map变量存储在全局
+    // }
+    //
+    // //地图事件设置函数：
+    // function setMapEvent() {
+    //     map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+    //     map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+    //     map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+    //     map.enableKeyboard();//启用键盘上下左右键移动地图
+    // }
+    //
+    // //地图控件添加函数：
+    // function addMapControl() {
+    //     //向地图中添加缩放控件
+    //     var ctrl_nav = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_LEFT, type: BMAP_NAVIGATION_CONTROL_LARGE});
+    //     map.addControl(ctrl_nav);
+    //     //向地图中添加缩略图控件
+    //     var ctrl_ove = new BMap.OverviewMapControl({anchor: BMAP_ANCHOR_BOTTOM_RIGHT, isOpen: 1});
+    //     map.addControl(ctrl_ove);
+    //     //向地图中添加比例尺控件
+    //     var ctrl_sca = new BMap.ScaleControl({anchor: BMAP_ANCHOR_BOTTOM_LEFT});
+    //     map.addControl(ctrl_sca);
+    // }
+    // initMap();//创建和初始化地图
+
+</script>
+
+</body>
+</html>

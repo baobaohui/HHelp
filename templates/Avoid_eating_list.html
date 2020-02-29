@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>HHelp Avoid_eating_list</title>
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+
+        .PersonalCenter {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+
+            width: 6%;
+            height: 6%;
+            border:1px solid yellow;
+        }
+
+        .NavigationBar {
+            position: absolute;
+            top: 25%;
+            left: 5%;
+            width: 20%;
+            height: 60%;
+        }
+
+        .OneNavigationBar {
+            height: 8%;
+            width: 75%;
+            margin: 0 20% 5% 15%;
+            background-color: #5296fd;
+            border-radius: 60px;
+
+            /*border: 2px solid yellow;*/
+            text-align: center;
+        }
+
+        .selectedOneNavigationBar {
+            height: 8%;
+            width: 75%;
+
+            margin: 0 20% 5% 15%;
+            /*background-color: #0031ff;*/
+            background-color: #0031ff;
+            border-radius: 60px;
+            /*border: 2px solid yellow;*/
+            text-align: center;
+        }
+
+        .NavigationBarText {
+            width: 100%;
+            height: 100%;
+            color: white;
+            font-size: 1em;
+            line-height: 250%;
+        }
+
+        .OneNavigationBar:hover {
+            cursor: pointer;
+            border: 2px solid #0031ff;
+        }
+
+        .search{
+            position: absolute;
+            top: 15%;
+            left: 40%;
+
+            display: flex;
+            flex-direction: row;
+
+            height: 5%;
+            width: 30%;
+
+            border: 1px solid blue;
+        }
+        .search_input{
+            width:92%;
+            height: 100%;
+
+            padding-left: 2%;
+            font-size: 1em;
+        }
+        .search_input:hover{
+            border: 1px solid blue;
+        }
+        .search_img{
+            height: 100%;
+            width: 8%;
+            /*margin: 0 1%;*/
+
+            background-color: #81AFF6;
+        }
+        .search_img:hover{
+            cursor: pointer;
+        }
+        .hide{
+            display: none;
+        }
+        .main_part{
+            position: absolute;
+            top: 25%;
+            left: 30%;
+
+            display: flex;
+            flex-direction: row;
+            height: 60%;
+            width: 50%;
+            border: 2px solid blue;
+
+        }
+        .listPart{
+            height: 100%;
+            width: 25%;
+            /*border: 1px solid blue;*/
+            border-right: 1px solid blue;
+        }
+        .listName{
+            height: 10%;
+            width:98%;
+
+            /*background-color: white;*/
+            font-size: 1em;
+            text-align: center;
+            margin-left: 1%;
+            line-height: 400%;
+            border-bottom: 1px solid blue;
+        }
+        .listName:hover{
+            cursor: pointer;
+
+            background-color: #66afe9;
+        }
+        .listContentPart{
+            height: 100%;
+            width: 65%;
+
+            /*margin-left: 10%;*/
+            text-align: center;
+
+        }
+        .listContent{
+
+            font-size: 1em;
+            /*text-align: center;*/
+        }
+    </style>
+
+</head>
+<body background="../static/images/index/index_background.png">
+
+<!--左上侧的个人中心-->
+<div class="PersonalCenter">
+
+    <div class="dropdown" style="width: 100%;height: 100%;">
+        <div class="  dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="true">
+            <img src="../static/images/index/user.png" style="display:block;width: 100%;height: 100%;margin: auto;">
+            <span class="caret"></span>
+        </div>
+
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width: 100%;height: 120%;">
+            <li><a href="/personalCenter/">个人中心</a></li>
+            <li><a href="/become_epert/">成为专家</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/login/">退出登录</a></li>
+        </ul>
+
+    </div>
+</div>
+<!--左侧菜单按钮位置-->
+<div class="NavigationBar" id="menu">
+
+    <!--每个菜单按钮-->
+    <div class="OneNavigationBar" onclick="window.location.href='/NearbyPharmacy/'">
+        <p class="NavigationBarText">附近药房</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Diet_health/'">
+        <p class="NavigationBarText">食疗养生</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Pharmaceutical_formula/'">
+        <p class="NavigationBarText">医药配方</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Dialogue_expert/'">
+        <p class="NavigationBarText">对话专家</p>
+    </div>
+    <div class="selectedOneNavigationBar" onclick="window.location.href='/Avoid_eating_list/'">
+        <p class="NavigationBarText">忌吃清单</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Sports_health/'">
+        <p class="NavigationBarText">运动保健</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Online_registration/'">
+        <p class="NavigationBarText">在线挂号</p>
+    </div>
+    <div class="OneNavigationBar" onclick="window.location.href='/Smart_notes/'">
+        <p class="NavigationBarText">智能备忘</p>
+    </div>
+
+</div>
+
+<!--右侧上方的搜索框-->
+<div class="search">
+    <input id='search' type="text" placeholder="请输入你要搜索的内容" class="search_input">
+    <img src="../static/images/index/search.png" class="search_img">
+</div>
+
+<!--右侧下方的主体部分-->
+<div class="main_part">
+
+
+<!--        <div class="listPart">-->
+<!--        <div class="listName" a="1">忌吃清单一</div>-->
+<!--        <div class="listName" a="2">忌吃清单二</div>-->
+<!--        <div class="listName" a="3">忌吃清单三</div>-->
+<!--    </div>-->
+
+<!--    <div class="listContentPart">-->
+<!--        <div class="listContent" b="1">忌吃清单内容一</div>-->
+<!--        <div class="listContent hide" b="2">忌吃清单内容二</div>-->
+<!--        <div class="listContent hide" b="3">忌吃清单内容三</div>-->
+<!--    </div>-->
+
+
+    <div class="listPart">
+        {% for list in eating_list %}
+        <div class="listName">{{ list.title }}</div>
+        {% endfor %}
+    <!--
+        <div class="listName">上火忌吃清单</div>
+        <div class="listName">手术后忌吃清单</div>
+    -->
+
+    </div>
+
+    <div class="listContentPart">
+        {% for list in eating_list %}
+        <div class="listContent">
+            <p>{{ list.title }}</p></br>
+            {{ list.content }}
+        </div>
+        {% endfor %}
+
+
+        <!--
+
+        <div class="listContent hide">
+            <p>上火忌吃清单</p></br>
+            不可以喝含香精，糖精，醋精等饮料，这些物质会使人更加口渴 </br>
+            不可以吃饼干等膨化类食品。因为促进上火。 </br>
+            不可以吃肥腻的食物，例如，肥猪肉，猪膏等，脂肪产生能量高，更容易上火</br>
+            不可以吃油炸类的食物。因为产生能量高，而且是脱水类的食品。</br>
+            不可以吃腌制食品。腌制食品容易产生癌症，上火抵抗力就差下来，加上腌制食品抵抗力就更差。 </br>
+
+
+        </div>
+        <div class="listContent hide">
+        <p>胃病忌吃清单</p></br>
+
+            不能吃辛辣的食物</br>
+            不能吃鱼虾等水产类食物 </br>
+            不能饮酒 </br>
+
+
+        </div>
+        -->
+    </div>
+</div>
+
+<script src="../static/jquery-3.4.1.js"></script>
+<script src="../static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script>
+
+    //忌吃清单列表点击动态显示忌吃清单内容
+    $('.listName').click(function () {
+
+        //动态更改背景颜色
+        // $(this).style.backgroundColor="#66afe9";
+        $(this).css('background-color','#66afe9');
+        $(this).siblings().css('background-color','white');
+        // var target = $(this).attr('a');
+       // $('.listContentPart').children("[b='"+target+"']").removeClass('hide').siblings().addClass('hide');
+        // 使用索引的话，a,b 都不需要存在，只需要使用索引就好
+
+        //使用相互之间对应的索引
+
+        var v = $(this).index();
+        console.log(v);
+        $('.listContentPart').children().eq(v).removeClass('hide').siblings().addClass('hide');
+    })
+
+</script>
+
+</body>
+</html>
